@@ -23,4 +23,19 @@ module.exports = {
         .then(async (newUser) => res.json(newUser))
         .catch((err) => res.status(500).json(err));
     },
+    changeSingleUser(req, res) {
+        User.findOneAndUpdate(
+            {_id: req.params.userId},
+            {   username: req.body.username,
+                email: req.body.email 
+            },
+            {new: true}
+        )
+        .then((updatedUser) => {
+            if (!updatedUser) {
+                res.status(404).json({ message: 'No user with that ID'})
+            }
+            res.json(updatedUser);
+        });
+    }
 }

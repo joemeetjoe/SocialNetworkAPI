@@ -3,6 +3,7 @@ const {
     getUsers,
     getSingleUser,
     postNewUser,
+    changeSingleUser,
 } = require('../../controllers/userController')
 
 // /api/users
@@ -12,6 +13,7 @@ router.route('/')
     
 router.route('/:userId')
     .get(getSingleUser)
+    .put(changeSingleUser)
 
 
 
