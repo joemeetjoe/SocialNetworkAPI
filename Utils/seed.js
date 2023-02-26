@@ -15,23 +15,22 @@ connection.once('open', async () => {
     const users = [];
     // for the length of usernames array, make new user objects with names and emails
     for (i = 0; i < userNames.length; i ++){
-        const name = userNames[i];
-        console.log(name)
+        const username = userNames[i];
+        console.log(userNames[i]);
         const email = emails[i];
-        console.log(email);
+
         // push the new user objects to the array
         users.push({
-            name, 
+            username, 
             email,
-            thoughts: [],
-            friends: [User._id],
         });
-        console.log(users);
+        console.log(userNames[i].friends);
     }
     // insert all of the objects in the users array into the model
     await User.collection.insertMany(users);
     // return a response to confirm seed has taken place
     console.table(users);
+    
 
 
     const thoughts = []
@@ -46,9 +45,10 @@ connection.once('open', async () => {
             thought, 
             name,
         });
-        console.log(thoughts);
+        // console.log(thoughts);
     }
     // insert all of the objects in the thoughts array into the model
     await Thought.collection.insertMany(thoughts)
+    console.table(thoughts);
 })
 
