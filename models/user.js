@@ -1,7 +1,6 @@
 // importing in the schema and model features from mongoose
 const { Schema, model } = require('mongoose');
 
-
 // schema to create user model
 const userSchema = new Schema(
     {
@@ -26,7 +25,7 @@ const userSchema = new Schema(
         friends: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'User',
+                ref: 'user',
             },
         ],
     },
