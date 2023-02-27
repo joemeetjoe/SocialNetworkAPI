@@ -1,5 +1,5 @@
 // example data for thoughtText
-const thoughtText = [
+const thoughtTextData = [
     'I like trains',
     'Big Mommas house 3 is a good movie',
     'Bigfoot is real',
@@ -27,6 +27,6 @@ const thoughtUserNames = [
 ];
 
 module.exports = {
-    thoughtText,
+    thoughtTextData,
     thoughtUserNames,
 }

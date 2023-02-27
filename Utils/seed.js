@@ -1,7 +1,7 @@
 const connection = require('../config/connection');
 const { User, Reaction, Thought } = require('../models')
 const { userNames, emails } = require('./userData');
-const { thoughtText, thoughtUserNames } = require('./thoughtData');
+const { thoughtTextData, thoughtUserNames } = require('./thoughtData');
 
 // if there is an error in the connection, return an error
 connection.on('error', (err) => err);
@@ -35,15 +35,15 @@ connection.once('open', async () => {
 
     const thoughts = []
     // for the length of the thoughts array, make new thought objects with thoughts and users
-    for (i = 0; i < thoughtText.length; i ++){
-        const name = thoughtUserNames[i];
+    for (i = 0; i < thoughtTextData.length; i ++){
+        const username = thoughtUserNames[i];
         
-        const thought = thoughtText[i];
+        const thoughtText = thoughtTextData[i];
         
         // push the new user objects to the array
         thoughts.push({
-            thought, 
-            name,
+            thoughtText, 
+            username,
         });
         // console.log(thoughts);
     }
