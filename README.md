@@ -30,15 +30,19 @@
 
   ---
 
-  -N/A
+  NPM I, Nodemon Server.js
 
   ---
   ## Usage
   
   Please see link to deployed application below:
   
-  N/A
+  https://drive.google.com/file/d/1Tb6JAJNKYjj5ozlWRxaGnm7e7BjfbhbV/view
   
+  ![Screenshot 2023-02-27 200857](https://user-images.githubusercontent.com/119348225/221726173-0b9350cc-31b9-4de4-a745-16145f41a4ae.png)
+
+  ![Screenshot 2023-02-27 200920](https://user-images.githubusercontent.com/119348225/221726178-7c0a3062-1bf8-41f3-b4c5-f96b18780bdb.png)
+
   ## License
 
   This project is licensed under the MIT License.
@@ -51,11 +55,7 @@
   
   To run tests, run the following command:
   
-  ---
-  
-  NPM I, Nodemon Server.js
-
-  ---
+  N/A
   
   ## Questions
   
