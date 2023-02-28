@@ -17,6 +17,8 @@ module.exports = {
                 res.json(newFriend)
             });
     },
+    // delete a friend from a user's friend list
+    // /api/users/:userId/friends/:friendId
     deleteNewEnemy(req, res) {
         User.findOneAndUpdate(
             {_id: req.params.userId},
