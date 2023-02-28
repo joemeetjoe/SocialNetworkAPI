@@ -1,5 +1,5 @@
 // require the user and thought model to manipulate
-const { User, Thought} = require('../models');
+const { User, Thought } = require('../models');
 // export all of the functions to be used in routes
 module.exports = {
     // get all thoughts /api/thoughts
@@ -64,5 +64,44 @@ module.exports = {
             res.json( {message: 'Thought successfully deleted' })
         });
     },
+    // create a reaction and then add that reaction to the reaction /api/thoughts/:id/reactions
+    createReaction(req, res){
+        Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            { $addToSet: { reactions: req.body } },
+            { runValidators: true, new: true }
+        )
+        .then((newReaction) => {
+            if (!newReaction) {
+                res.status(404).json({ message: 'something went wrong'})
+            }
+            res.json(newReaction)
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    },
+    // delete a reaction to a thought based off of its id
+    // /api/thoughts/:thoughtId/reactions/:reactionId
+    deleteReaction(req, res){
+        Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            { $pull: { reactions: {_id: req.params.reactionId}} },
+            { runValidators: true, new: true }
+        )
+        .then((deletedReaction) => {
+            if (!deletedReaction) {
+                res.status(404).json({ message: 'something went wrong'})
+            }
+            res.json(deletedReaction)
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    },
 
-}
+    }
+
+

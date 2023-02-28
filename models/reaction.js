@@ -33,6 +33,5 @@ const reactionSchema = new Schema(
 const Reaction = model('reaction', reactionSchema);
 // exporting the module to be used by other programs
 module.exports = {
-    Reaction,
     reactionSchema
 }

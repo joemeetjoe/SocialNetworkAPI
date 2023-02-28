@@ -20,7 +20,7 @@ module.exports = {
     deleteNewEnemy(req, res) {
         User.findOneAndUpdate(
             {_id: req.params.userId},
-            { $pull: { 'friends' : [req.params.friendId] }},
+            { $pull: { friends : req.params.friendId }},
             {new: true}
             )
             .then((newEnemy) => {
